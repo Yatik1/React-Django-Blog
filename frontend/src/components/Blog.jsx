@@ -17,28 +17,28 @@ function Blog({ title, body, date, isConnected,url, id, called }) {
         return date.toISOString().split('T')[0];
     }
 
-    async function handleDelete() {
-        if (!currentUser) {
-            throw new Error('User is not authenticated');
-        }
-        const idToken = await currentUser.getIdToken(true);
+    // async function handleDelete() {
+    //     if (!currentUser) {
+    //         throw new Error('User is not authenticated');
+    //     }
+    //     const idToken = await currentUser.getIdToken(true);
 
-        axios.delete(`http://127.0.0.1:8000/deleteblog/${id}`,{
-            headers: {
-                Authorization: `Bearer ${idToken}`
-            }
-        })
-            .then(
-                (response) => {
-                    setError('')
-                }
-            )
-            .then(
-                (error) => {
-                    console.error(error)
-                }
-            )
-    }
+    //     axios.delete(`http://localhost:8000/deleteblog/${id}`,{
+    //         headers: {
+    //             Authorization: `Bearer ${idToken}`
+    //         }
+    //     })
+    //         .then(
+    //             (response) => {
+    //                 setError('')
+    //             }
+    //         )
+    //         .then(
+    //             (error) => {
+    //                 console.error(error)
+    //             }
+    //         )
+    // }
 
     const Navigate = useNavigate()
     const redirectToPath = (path) => {
@@ -66,18 +66,21 @@ function Blog({ title, body, date, isConnected,url, id, called }) {
                 <div className='content-div' style={{padding:'1rem'}}>
                     <h1 className='blog-title'>{(title)}</h1>
                     <p className='date'>{extractDate(date)}</p>
-                    <p className='blog-brief'style={{overflow:'hidden'}}>
-                        {shortText(body)}
-                        <Link>see more</Link>
+                    <p className='blog-brief' style={{overflow:'hidden'}}>
+                        {shortText(body)}                        
                     </p>
-                    {called == 'profile' &&
-                        <div className="blog-btn">
-                            <button className="delete-btn" onClick={handleDelete}>Delete</button>
-                            <button className="edit-btn" onClick={() => { redirectToPath(`../editblog/${id}`) }}>Edit</button>
-                        </div>
-                    }
                 </div>
             </div>
+
+            {/* <div className="blog-btn">
+            {called == 'profile' && (
+                <>
+                    <button className="delete-btn" onClick={handleDelete}>Delete</button>
+                    <button className="edit-btn" onClick={() => { redirectToPath(`../editblog/${id}`) }}>Edit</button>
+                </>
+            )
+            }
+            </div> */}
         </IKContext>
     )
 }

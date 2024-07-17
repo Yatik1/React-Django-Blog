@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Homepage() {
+
+  const navigate = useNavigate()
+
   const [images] = useState([
     { image: 'https://images.pexels.com/photos/4069291/pexels-photo-4069291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: "3 Simple Productivity Tips", content : "To boost productivity, start by prioritizing your tasks. Begin with the simplest tasks to build momentum, which can help you tackle larger ones. Use time blocks to work in short, focused bursts with breaks in between to maintain energy and focus. Minimize distractions by silencing notifications and avoiding unnecessary interruptions.", responsiveContent:"To boost productivity, start by prioritizing your tasks. Begin with the simplest tasks to build momentum," },
     { image: 'https://images.pexels.com/photos/4065891/pexels-photo-4065891.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', name: "Staying Productive in a Busy World",content:"Maintaining productivity requires a blend of focus and flexibility. Start by organizing your tasks, focusing on what’s most important. Create short, dedicated time slots for deep work, ensuring you take regular breaks to avoid burnout.",responsiveContent:"Maintaining productivity requires a blend of focus and flexibility. Start by organizing your tasks, focusing on what’s most important. " },
@@ -28,7 +31,7 @@ function Homepage() {
     <>
       <Navbar />
       <Banner images = {images} current = {current}/>
-      <Categories/>
+      {/* <Categories/> */}
       <HomeBlog images = {images}/>
       <footer>
         <div className='footer-container'>

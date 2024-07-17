@@ -25,13 +25,23 @@ function Navbar() {
         <nav className='navbar' >
         <div className='inner-header'>
             <div className='Logo'>
-                <h1>Buggsbunny</h1>
+                <h1 className='logoa'><Link to="/">Buggsbunny</Link></h1>
             </div>
             <GiHamburgerMenu className='ham' onClick={toggleNavbar} />
         </div>
+
+        <div className="links">
+                <Link to="/">Home</Link>
+                <Link to="/blogs">Blog</Link>
+                <Link to="/newblog">Create New</Link>
+                {currentUser ? (
+                    <Link onClick={handleLogout}>Logout</Link>
+                ) : (
+                    <Link to={"/login"}>Login</Link>
+                )}
+            </div>
             
             <ul className={`tabs`} style={{'display': isExpanded?'flex':'none'}} >
-            {console.log(isExpanded)}
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/blogs">Blog</Link></li>
                 <li><Link to="/newblog">Create New</Link></li>

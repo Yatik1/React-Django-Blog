@@ -16,7 +16,7 @@ function Profilepage() {
                     throw new Error('User is not authenticated');
                 }
                 const idToken = await currentUser.getIdToken(true);
-                axios.get(`https://buggbunny.pythonanywhere.com//getuserblogs/${currentUser.email}`,{
+                axios.get(`http://localhost:8000/getuserblogs/${currentUser.email}`,{
                     headers: {
                         Authorization: `Bearer ${idToken}`,
                         
@@ -42,7 +42,7 @@ function Profilepage() {
         <>
             <Navbar />
             <div className="container" style={{flexDirection:'column'}}>
-                <h1>Blogs by <span>guramrit1066@gmail.com</span></h1>
+                <h1>user blogs </h1>
                 <div className='blogs'>
                 {userBlogs.map(blog => (
                     <Blog key={blog.id} title = {blog.title} body={blog.body} date = {blog.created_on} url={blog.url} id = {blog.id} called={'profile'}/>

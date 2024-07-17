@@ -19,9 +19,9 @@ imagekit = ImageKit(
 @api_view(['GET'])
 def allblogs(request):
     try:
-        firebase_user = request.firebase_user
-        print(firebase_user)
-        if firebase_user:
+        # firebase_user = request.firebase_user
+        # print(firebase_user)
+        # if firebase_user:
             blogs = Blog.objects.all()
             serializer = BlogSerializer(blogs,many=True)
             j = 0

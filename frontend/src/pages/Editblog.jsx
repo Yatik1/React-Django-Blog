@@ -44,7 +44,7 @@ function Editblog() {
                     throw new Error('User is not authenticated');
                 }
                 const idToken = await currentUser.getIdToken(true);
-                axios.get(`https://buggbunny.pythonanywhere.com//blog/${id}`, {
+                axios.get(`http://localhost:8000/blog/${id}`, {
                     headers: {
                         Authorization: `Bearer ${idToken}`,
 
@@ -120,7 +120,7 @@ function Editblog() {
             }
             const idToken = await currentUser.getIdToken(true);
 
-            axios.put(`https://buggbunny.pythonanywhere.com//putblog/${id}`, putBody, {
+            axios.put(`http://localhost:8000/putblog/${id}`, putBody, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${idToken}`

@@ -32,7 +32,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*' , "vercel.app"]
 
 IMAGEKIT_PUBLIC_KEY = config('IMAGEKIT_PUBLIC_KEY')
 IMAGEKIT_PRIVATE_KEY = config('IMAGEKIT_PRIVATE_KEY')

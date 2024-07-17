@@ -62,7 +62,7 @@ function NewBlog() {
             }
             const idToken = await currentUser.getIdToken(true);
 
-            axios.post('https://buggbunny.pythonanywhere.com/postblog/', formData, {
+            axios.post('http://localhost:8000/postblog/', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
                 'Authorization': `Bearer ${idToken}`
@@ -89,7 +89,7 @@ function NewBlog() {
 
     return (
         <IKContext urlEndpoint={urlEndpoint} publicKey={publicKey} authenticator={async () => {
-            const response = await fetch('https://buggbunny.pythonanywhere.com/auth');
+            const response = await fetch('http://localhost:8000/auth');
             
             const data = await response.json();
             

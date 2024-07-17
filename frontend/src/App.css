@@ -12,10 +12,12 @@ li{
 }
 a{
   text-decoration: none;
-  color: white;
+  color: black;
 }
+
 .navbar{
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -23,6 +25,15 @@ a{
   padding:1.5rem 3rem;
   background-color: rgb(255, 255, 255);
 }
+
+.links {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+ width: fit-content;
+}
+
 .tabs{
   display: flex;
   align-items: center;
@@ -280,9 +291,30 @@ footer{
 .blog-title{
   display: flex;
   align-items: center;
+  gap: 10px;
   justify-content: space-between;
-  width: 80%;
+  width: fit-content;
 }
+
+.blog-title button {
+  width: 40px;
+  height: 30px;
+  border: none;
+  /* background-color: gray; */
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-btn{
+  font-size: 12px;
+  background-color: red;
+} 
+
+.editBtn {
+  background-color: black;
+}
+
 .blog-content {
   display: flex;
   align-items: flex-start;
@@ -379,34 +411,12 @@ footer{
   background-color: #31363F;
 }
 
-.delete-btn{
-  height: fit-content;
-  width: fit-content;
-  margin: 1rem 0;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background-color: #b81f29;
-  color: white;
-}
-.edit-btn{
-  height: fit-content;
-  width: fit-content;
-  margin: 1rem 0;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background-color: #21b81f;
-  color:white
-}
+
+
 .blog-btn{
   display: flex;
   gap: 1rem;
-}
+} 
 
 .drag-area{
   height: 35vh;
@@ -446,6 +456,12 @@ footer{
 .ham{
   display: none;
   
+}
+
+@media screen and (max-width : 770px) {
+  .links{
+    display: none;
+  }
 }
 
 @media screen and (max-width:768px) {
